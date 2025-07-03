@@ -1,3 +1,9 @@
+create table emp(id int primary key,name varchar(20),sal int,department varchar(10));
+
+insert into emp values(1,'Jack',40000,'IT'),(2,'James',45000,'IT'),
+(3,'Daniel',65000,'HR'),(4,'Yukta',70000,'HR'),
+(5,'Sheldon',35000,'IT'),(6	,'Patsy',55000,'Finance'),(7,'Nathan',50000,'Finance'),(8,'Andy',60000,'Finance')
+
 -- scalar subquery return single row and single column
 select avg(sal) as average_salary from emp;
 select * from emp
