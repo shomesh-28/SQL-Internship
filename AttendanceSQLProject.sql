@@ -7,8 +7,7 @@ constraint depFK foreign key(department_id) references department(dep_id),constr
 
 create table attendance(attendance_id int,emp_id int,attendance_date date,check_in time,
 constraint empIdFK foreign key(emp_id) references employee(id),constraint attPK primary key(emp_id,attendance_date));
-drop table department,employee,attendance;
-delete from department
+
 insert into department values(1,'IT'),(2,'HR'),(3,'Manager');
 insert into employee values(18,'John','Doe','000-000-0000','john@example.com','Mumbai','2021-12-8',1,1),
 (19,'Novak','Djokovic','111-111-1111','novak@example.com','Delhi','2022-1-31',2,1),
@@ -35,5 +34,8 @@ maxvalue 200
 cycle;
 
 
-insert into attendance values(nextval('attId'),1,current_date,null);
-select emp_id,count(*) as numberOfDaysWorked from attendance group by attendance_date,emp_id;
+insert into attendance values(nextval('attId'),18,current_date,null),(nextval('attId'),19,current_date,null),
+(nextval('attId'),1,current_date,null);
+
+
+select emp_id,count(*) as numberOfDaysWorkedInCurrentMonth from attendance group by attendance_date,emp_id;
